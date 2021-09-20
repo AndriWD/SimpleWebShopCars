@@ -1,0 +1,25 @@
+﻿
+@model CarsListViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+    <h1>Всі автомобілі</h1>
+    <h3>@Model.CarCatagery</h3>
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (WebShop1.Data.Models.Car car in Model.getAllCars)
+            {
+                Html.Partial("AllCars", car);
+            }
+        }
+    </div> 
+    
+</body>
+</html>

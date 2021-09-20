@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebShop1</name>
+    </assembly>
+    <members>
+        <member name="T:WebShop1.Controllers.CarsController">
+            <summary>
+            Контроллер Авто
+            </summary>
+        </member>
+        <member name="M:WebShop1.Controllers.CarsController.#ctor(WebShop1.Data.Interfaces.IAllCars,WebShop1.Data.Interfaces.ICarsCategory)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="allCars"></param>
+            <param name="carsCategory"></param>
+        </member>
+        <member name="M:WebShop1.Controllers.CarsController.List(System.String)">
+            <summary>
+            Отримати автомобілі конкретної категорії,
+            інакше всі
+            </summary>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Controllers.CartsController">
+            <summary>
+            Контролер Кошика
+            </summary>
+        </member>
+        <member name="M:WebShop1.Controllers.CartsController.#ctor(WebShop1.Data.Interfaces.IAllCars,WebShop1.Data.Models.Cart)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="carRep"></param>
+            <param name="cart"></param>
+        </member>
+        <member name="M:WebShop1.Controllers.CartsController.Index">
+            <summary>
+            Представлення кошика
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebShop1.Controllers.CartsController.AddToCart(System.Int32)">
+            <summary>
+            Додати до корзини
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Controllers.HomeController">
+            <summary>
+            Головна сторінка
+            </summary>
+        </member>
+        <member name="M:WebShop1.Controllers.HomeController.#ctor(WebShop1.Data.Interfaces.IAllCars)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="carRep"></param>
+        </member>
+        <member name="M:WebShop1.Controllers.HomeController.Index">
+            <summary>
+            Всі автомобілі
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Controllers.OrdersController">
+            <summary>
+            Контроллер Замовлень
+            </summary>
+        </member>
+        <member name="M:WebShop1.Controllers.OrdersController.#ctor(WebShop1.Data.Interfaces.IAllOrders,WebShop1.Data.Models.Cart)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="allOrders"></param>
+            <param name="cart"></param>
+        </member>
+        <member name="M:WebShop1.Controllers.OrdersController.Checkout">
+            <summary>
+            Заповнити форму замовлення
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebShop1.Controllers.OrdersController.Checkout(WebShop1.Data.Models.Order)">
+            <summary>
+            Замовити автомобіль
+            </summary>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebShop1.Controllers.OrdersController.Complete">
+            <summary>
+            Сповіщає про успішно здійснене замовлення
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Data.DAL.AppDbContext">
+            <summary>
+            Доступ до даних
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.DAL.AppDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{WebShop1.Data.DAL.AppDbContext})">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="P:WebShop1.Data.DAL.AppDbContext.Cars">
+            <summary>
+            Автомобілі
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.DAL.AppDbContext.Categories">
+            <summary>
+            Категорії
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.DAL.AppDbContext.ShopCarItems">
+            <summary>
+            Елементи кошика
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.DAL.AppDbContext.Orders">
+            <summary>
+            Замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.DAL.AppDbContext.OrderDetails">
+            <summary>
+            Деталі замовлення
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.DbObjects">
+            <summary>
+            Клас Ініціалізації БД
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.DbObjects.Initial(WebShop1.Data.DAL.AppDbContext)">
+            <summary>
+            Ініціалізація БД
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="P:WebShop1.Data.DbObjects.Categories">
+            <summary>
+            Доступ до існуючих категорій / Створення існуючих категорій
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Interfaces.IAllCars">
+            <summary>
+            Контракт для репозиторія Автомобілів
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Interfaces.IAllCars.Cars">
+            <summary>
+            Отримати всі автомобілі
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Interfaces.IAllCars.GetFavouriteCars">
+            <summary>
+            Отримати автомобілі з позначкою "Улюблені"
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Interfaces.IAllCars.GetCar(System.Int32)">
+            <summary>
+            Отримати автомобіль по ідентифікатору
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Data.Interfaces.IAllOrders">
+            <summary>
+            Контракт для репозиторію Замовлень
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Interfaces.IAllOrders.createOrder(WebShop1.Data.Models.Order)">
+            <summary>
+            Створити замовлення
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="T:WebShop1.Data.Interfaces.ICarsCategory">
+            <summary>
+            Контракт для репозиторію Категорій
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Interfaces.ICarsCategory.GetAllCategories">
+            <summary>
+            Отримати всі Категорії
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Mocks.ShopCartItem">
+            <summary>
+            Елемент корзини
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Mocks.ShopCartItem.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Mocks.ShopCartItem.CarId">
+            <summary>
+            Ідентифікатор Автомобіля
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Mocks.ShopCartItem.Car">
+            <summary>
+            Автомобіль
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Mocks.ShopCartItem.Price">
+            <summary>
+            Ціна
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Mocks.ShopCartItem.ShopCartId">
+            <summary>
+            Ідентифікатор Корзини
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Models.Car">
+            <summary>
+            Автомобіль
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.Name">
+            <summary>
+            Назва Автомобіля
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.ShortDescroption">
+            <summary>
+            Короткий опис
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.LingDescription">
+            <summary>
+            Довгий опис
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.Image">
+            <summary>
+            Картинка
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.Price">
+            <summary>
+            Ціна
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.IsFavourite">
+            <summary>
+            Позначка "Улюблений"
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.available">
+            <summary>
+            Позначка "Є в продажі"
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.CategoryId">
+            <summary>
+            Ідентифікатор Категорії
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Car.Category">
+            <summary>
+            Категорія
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Models.Cart">
+            <summary>
+            Кошик
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Models.Cart.#ctor(WebShop1.Data.DAL.AppDbContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="appDbContext"></param>
+        </member>
+        <member name="P:WebShop1.Data.Models.Cart.CartId">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Cart.ListShopItems">
+            <summary>
+            Список елементів в корзині
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Models.Cart.GetCart(System.IServiceProvider)">
+            <summary>
+            Отримати корзину для поточної сесії
+            </summary>
+            <param name="service"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebShop1.Data.Models.Cart.AddToCart(WebShop1.Data.Models.Car,System.Int32)">
+            <summary>
+            Добавити до корзини
+            </summary>
+            <param name="car"></param>
+            <param name="amount"></param>
+        </member>
+        <member name="M:WebShop1.Data.Models.Cart.GetShopCartItems">
+            <summary>
+            Отримати елементи корзини
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Data.Models.Category">
+            <summary>
+            Категорії
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Category.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Category.CategoryName">
+            <summary>
+            Назва Категорії
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Category.DescriptionCategory">
+            <summary>
+            Опис Категорії
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Category.Cars">
+            <summary>
+            Автомобілі даної категорії
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Models.Order">
+            <summary>
+            Замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Name">
+            <summary>
+            Ім'я
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Surname">
+            <summary>
+            Прізвище
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Address">
+            <summary>
+            Адрес
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Phone">
+            <summary>
+            Номер мобільного телефону
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.Email">
+            <summary>
+            Емайл
+            </summary>    
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.orderTime">
+            <summary>
+            Час оформлення замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.Order.orderDetails">
+            <summary>
+            Деталі замовлення
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Models.OrderDetail">
+            <summary>
+            Деталі замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.Id">
+            <summary>
+            Ідентифікатор
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.OrderId">
+            <summary>
+            Ідентифікатор замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.Order">
+            <summary>
+            Замовлення
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.CarId">
+            <summary>
+            Ідентифікатор Автомобіля
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.Car">
+            <summary>
+            Автомобіль
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Models.OrderDetail.Price">
+            <summary>
+            Ціна
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Repository.CarRepository">
+            <summary>
+            Репозиторій Автомобілів
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Repository.CarRepository.#ctor(WebShop1.Data.DAL.AppDbContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="appDbContext"></param>
+        </member>
+        <member name="P:WebShop1.Data.Repository.CarRepository.Cars">
+            <summary>
+            Всі автомобілі
+            </summary>
+        </member>
+        <member name="P:WebShop1.Data.Repository.CarRepository.GetFavouriteCars">
+            <summary>
+            Отримати автомобілі з позначкою "Улюблені"
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Repository.CarRepository.GetCar(System.Int32)">
+            <summary>
+            Отримати автомобіль по ідентифікатору
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebShop1.Data.Repository.CategoryRepository">
+            <summary>
+            Репозиторій Категорій
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Repository.CategoryRepository.#ctor(WebShop1.Data.DAL.AppDbContext)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="appDbContext"></param>
+        </member>
+        <member name="P:WebShop1.Data.Repository.CategoryRepository.GetAllCategories">
+            <summary>
+            Отримати всі Категорії
+            </summary>
+        </member>
+        <member name="T:WebShop1.Data.Repository.OrderRepository">
+            <summary>
+            Репозиторій Замовлень
+            </summary>
+        </member>
+        <member name="M:WebShop1.Data.Repository.OrderRepository.#ctor(WebShop1.Data.DAL.AppDbContext,WebShop1.Data.Models.Cart)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="appDbContext"></param>
+            <param name="cart"></param>
+        </member>
+        <member name="M:WebShop1.Data.Repository.OrderRepository.createOrder(WebShop1.Data.Models.Order)">
+            <summary>
+            Створити замовлення
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="T:WebShop1.ViewModels.CarsListViewModel">
+            <summary>
+            Модель представлення Автомобілів по категоріях
+            </summary>
+        </member>
+        <member name="P:WebShop1.ViewModels.CarsListViewModel.getAllCars">
+            <summary>
+            Всі Автомобілі
+            </summary>
+        </member>
+        <member name="P:WebShop1.ViewModels.CarsListViewModel.CarCatagery">
+            <summary>
+            Категорії
+            </summary>
+        </member>
+        <member name="T:WebShop1.ViewModels.CartsIndexViewModel">
+            <summary>
+            Модель представлення Кошика
+            </summary>
+        </member>
+        <member name="P:WebShop1.ViewModels.CartsIndexViewModel.Cart">
+            <summary>
+            Кошик
+            </summary>
+        </member>
+        <member name="T:WebShop1.ViewModels.HomeIndexViewModel">
+            <summary>
+            Модель представлення головної сторінки з автомобілями
+            </summary>
+        </member>
+        <member name="P:WebShop1.ViewModels.HomeIndexViewModel.FavouriteCars">
+            <summary>
+            Автомобілі з позначкою "Улюблені"
+            </summary>
+        </member>
+    </members>
+</doc>
