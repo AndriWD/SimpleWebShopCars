@@ -6,9 +6,9 @@
 DOXYFILE_ENCODING      = UTF-8
 PROJECT_NAME           = "SimpleWebShopCars"
 PROJECT_NUMBER         = 1.0
-PROJECT_BRIEF          =
+PROJECT_BRIEF          = "Simple web shop of Cars"
 PROJECT_LOGO           =
-OUTPUT_DIRECTORY       = 
+OUTPUT_DIRECTORY       = ./doc/
 CREATE_SUBDIRS         = NO
 ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
@@ -64,7 +64,7 @@ NUM_PROC_THREADS       = 1
 #---------------------------------------------------------------------------
 # Build related configuration options
 #---------------------------------------------------------------------------
-EXTRACT_ALL            = NO
+EXTRACT_ALL            = YES
 EXTRACT_PRIVATE        = NO
 EXTRACT_PRIV_VIRTUAL   = NO
 EXTRACT_PACKAGE        = NO
@@ -119,7 +119,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # Configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = C:\Users\andri\source\repos\WebShop1
+INPUT                  = .
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.c \
                          *.cc \
@@ -268,7 +268,7 @@ EXTRA_SEARCH_MAPPINGS  =
 #---------------------------------------------------------------------------
 # Configuration options related to the LaTeX output
 #---------------------------------------------------------------------------
-GENERATE_LATEX         = YES
+GENERATE_LATEX         = NO
 LATEX_OUTPUT           = latex
 LATEX_CMD_NAME         =
 MAKEINDEX_CMD_NAME     = makeindex
